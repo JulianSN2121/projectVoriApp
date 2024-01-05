@@ -2,8 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { SafeAreaView, ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { styles } from '../../AppStyles.js';
-import { getData } from '../services/apiClient.js';
+import { styles } from '../../AppStyles';
+import { getData } from '../services/apiClient';
 
 export default function HomeScreen() {
   useEffect(() => {
