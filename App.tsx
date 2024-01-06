@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import HomeView from './src/views/HomeView';
 import EventsView from './src/views/EventsView';
 import AccountView from './src/views/AccountView';
+import LoginView from './src/views/LoginView';
 
 
 export default function App() {
@@ -39,6 +40,16 @@ export default function App() {
             tabBarLabel: 'Konto',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="account" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Login"
+          component={LoginView}
+          options={{
+            tabBarLabel: 'Login',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="login" color={color} size={size} />
             ),
           }}
         />

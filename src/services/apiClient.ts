@@ -6,44 +6,61 @@ import { Hotel } from "../models/Hotel";
 import { Nightclub } from "../models/Nightclub";
 import { Organisation } from "../models/Organisation";
 import { Restaurant } from "../models/Restaurant";
+import { Event } from "../models/Event";
 
-async function getEntries<T>(entity: string) {
-    return await fetch("http://localhost:8055/items/" + entity)
-        .then((response) => {
-            if (response.status === 200) {
-                console.log(response.json())
-                return response.json();
-            } else {
-                throw new Error("Something went wrong on API server!");
-            }
-        })
-        .then((response) => {
-            console.debug(response);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+async function getEntries<T>(entity: string){
+  let entries: T[] = [];
+  await fetch("http://localhost:8055/items/" + entity)
+    .then(async (response) => {
+      if (response.status === 200) {
+        entries = await response.json();
+      } else {
+        throw new Error("Something went wrong on API server!");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  return entries;
 }
 
-export async function getData() {
-    const r = await getEntries<Restaurant>("restaurants");
-    const b = await getEntries<Bar>("bars");
-    const n = await getEntries<Nightclub>("nightclubs");
-    const h = await getEntries<Hotel>("hotels");
-    const c = await getEntries<Company>("companies");
-    const ac = await getEntries<Accommodation>("accommodations")
-    const as = await getEntries<Association>("associations")
-    const or = await getEntries<Organisation>("organisations")
-    const e = await getEntries<Event>("events")
-    return {
-        restaurants: r,
-        bars: b,
-        nightclubs: n,
-        hotels: h,
-        companies: c,
-        accommodations: ac,
-        associations: as,
-        organisations: or,
-        events: e
-    }
+export async function getAllEntities(): Promise<any[]> {
+  const r = await getRestaurants();
+  const b = await getBars();
+  const n = await getNightclubs();
+  const h = await getHotels();
+  const a = await getAccommodations();
+  const c = await getCompany();
+  const o = await getOrganisation();
+  const e = await getAssociation();
+  const f = await getEvents();
+  return [r, b, n, h, a, c, o, e, f];
+}
+
+export async function getRestaurants() {
+  return await getEntries<Restaurant>("restaurants");
+}
+export async function getBars() {
+  return await getEntries<Bar>("bars");
+}
+export async function getNightclubs() {
+  return await getEntries<Nightclub>("nightclubs");
+}
+export async function getHotels() {
+  return await getEntries<Hotel>("restaurants");
+}
+export async function getAccommodations() {
+  return await getEntries<Accommodation>("bars");
+}
+export async function getCompany() {
+  return await getEntries<Company>("nightclubs");
+}
+export async function getAssociation() {
+  return await getEntries<Association>("nightclubs");
+}
+export async function getOrganisation() {
+  return await getEntries<Organisation>("nightclubs");
+}
+export async function getEvents() {
+  return await getEntries<Event>("nightclubs");
 }
