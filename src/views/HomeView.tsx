@@ -7,7 +7,7 @@ import { getData } from '../services/apiClient';
 
 export default function HomeScreen() {
   useEffect(() => {
-    getData();
+    getData()
   }, []);
 
   return (
