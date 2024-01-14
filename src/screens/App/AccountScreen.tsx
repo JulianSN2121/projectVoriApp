@@ -1,7 +1,7 @@
-import { styles } from '../../AppStyles';
+import { styles } from '../../../AppStyles';
 import { View, Text } from 'react-native';
 
-export default function WelcomeView() {
+export default function AccountView() {
     return (
       <View style={styles.pageContainer}>
         <Text style={styles.pageTitle}>Account</Text>

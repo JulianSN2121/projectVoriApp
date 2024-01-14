@@ -1,70 +1,32 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; // Stellen Sie sicher, dass Sie diese Bibliothek installiert haben
-import { NavigationContainer } from '@react-navigation/native';
-import HomeView from './src/views/HomeView';
-import EventsView from './src/views/EventsView';
-import AccountView from './src/views/AccountView';
-import LoginView from './src/views/LoginView';
+import React, { useState, useEffect } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
+import { styles } from "./AppStyles";
+
+import LoginNavigator from "./src/navigators/LoginNavigator";
+import AppNavigator from "./src/navigators/AppNavigator";
+
+const RootStack = createStackNavigator();
 
 export default function App() {
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
+
+  const handleLogin = () => {
+    setIsUserLoggedIn(true);
+  };
+  
+  useEffect(() => {}, []);
+
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{ headerShown: false }}>
-        <Tab.Screen
-          name="Home"
-          component={HomeView}
-          options={{
-            tabBarLabel: 'Entdecken',
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="compass-outline" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Events"
-          component={EventsView}
-          options={{
-            tabBarLabel: 'Events',
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="calendar" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Konto"
-          component={AccountView}
-          options={{
-            tabBarLabel: 'Konto',
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="account" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Login"
-          component={LoginView}
-          options={{
-            tabBarLabel: 'Login',
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="login" color={color} size={size} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
+      <RootStack.Navigator screenOptions={{ headerShown: false }}>
+        {isUserLoggedIn ? (
+          <RootStack.Screen name="AppNavigator" component={AppNavigator}/>
+        ) : (
+          <RootStack.Screen name="LoginNavigator" component={LoginNavigator} initialParams={{ onLogin: handleLogin }}/>
+        )}
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-const Tab = createBottomTabNavigator();
