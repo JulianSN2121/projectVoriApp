@@ -74,6 +74,7 @@ const categoriesTitles = {
   hotels: "Hotels",
   accommodations: "Unterkünfte",
   companies: "Unternehmen",
+  doctor: "Ärzte",
   associations: "Vereine",
   organisations: "Organisationen",
   events: "Events",

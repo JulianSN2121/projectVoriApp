@@ -10,6 +10,7 @@ import EntityScreen from "../screens/App/CategoryEntitiesScreen";
 import LoginScreen from "../screens/Auth/LoginScreen";
 import RegistrationScreen from "../screens/Auth/RegistrationScreen";
 import WelcomeScreen from "../screens/Auth/WelcomeScreen";
+import EntityInfoScreen from "../screens/App/EntityInfoScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -98,12 +99,12 @@ export default function AppNavigator() {
         }}
       />
       <Tab.Screen
-        name="Welcome"
-        component={WelcomeScreen}
+        name="EntityInfo"
+        component={EntityInfoScreen}
         options={{
-          tabBarLabel: "Willkommen",
+          tabBarLabel: "EntInfo",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="login" color={color} size={size} />
+            <MaterialCommunityIcons name="info" color={color} size={size} />
           ),
           tabBarActiveTintColor: "#ce1119",
           tabBarInactiveTintColor: "#ffffff",
