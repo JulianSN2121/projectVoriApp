@@ -5,7 +5,7 @@ import {
     Text,
   } from "react-native";
   
-import PriceInfoWidget from "../components/PriceInfoWidget";
+import EntityPriceInfoWidget from "./EntityPriceInfoWidget";
 import LocationInfoWidget from "../components/LocationInfoWidget";
 import { colors, windowHeight } from "../../AppStyles";
 
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
   });
 
-  export default function EntityItem() {
+  export default function EntityItem({ data }) {
     return (
       <View style={styles.entityItemContainer}>
         <View style={styles.entityItemContainer.imageContainer}>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
           <View
             style={styles.entityItemContainer.contentContainer.titleContainer}
           >
-            <Text>Restaurant 1</Text>
+            <Text>{data.name}</Text>
           </View>
           <View
             style={
@@ -68,8 +68,7 @@ const styles = StyleSheet.create({
             }
           >
             <Text style={{ fontSize: 10 }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-              excepturi eos, illo.
+              {data.description}
             </Text>
           </View>
           <View
@@ -77,8 +76,8 @@ const styles = StyleSheet.create({
               styles.entityItemContainer.contentContainer.infoWidgetsContainer
             }
           >
-            <PriceInfoWidget marginRight={10}></PriceInfoWidget>
-            <LocationInfoWidget marginRight={0}></LocationInfoWidget>
+            <EntityPriceInfoWidget marginRight={10} price_range={data.price_range}></EntityPriceInfoWidget>
+            <LocationInfoWidget data={data.location} marginRight={0}></LocationInfoWidget>
           </View>
         </View>
       </View>

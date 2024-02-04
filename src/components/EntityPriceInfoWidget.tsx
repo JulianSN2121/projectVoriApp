@@ -2,14 +2,14 @@ import { View, Text, StyleSheet } from "react-native";
 import { colors, windowHeight, windowWidth } from "../../AppStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function PriceInfoWidget({ marginRight }) {
+export default function EntityPriceInfoWidget({ marginRight, price_range }) {
     return (
       <View style={{...styles.PriceInfoWidget, marginRight: marginRight}}>
         <View style={styles.PriceInfoWidget.icon}>
           <Icon style={colors.darkGrey} name="tag" size={10}></Icon>
         </View>
         <View style={styles.PriceInfoWidget.text}>
-          <Text style={{ fontSize: 10 }}>12€</Text>
+          <Text style={{ fontSize: 10 }}>{price_range}</Text>
         </View>
       </View>
     );

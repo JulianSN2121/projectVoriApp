@@ -2,14 +2,14 @@ import { View, Text, StyleSheet } from "react-native";
 import { colors, windowHeight, windowWidth } from "../../AppStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function DateInfoWidget({ marginRight }) {
+export default function DateInfoWidget({ start_date, end_date, marginRight }) {
     return (
       <View style={{...styles.DateInfoWidget, marginRight: marginRight }}>
         <View style={styles.DateInfoWidget.icon}>
           <Icon style={colors.darkGrey} name="calendar" size={10}></Icon>
         </View>
         <View style={styles.DateInfoWidget.text}>
-          <Text style={{ fontSize: 10 }}>01.01.2024</Text>
+          <Text style={{ fontSize: 10 }}>{start_date}</Text>
         </View>
       </View>
     );

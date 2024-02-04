@@ -5,7 +5,7 @@ import {
     Image,
 } from "react-native";
 import { colors, windowHeight } from "../../AppStyles";
-import PriceInfoWidget from "../components/PriceInfoWidget";
+import EventPriceInfoWidget from "./EventPriceInfoWidget";
 import DateInfoWidget from "../components/DateInfoWidget";
 import Event from "../../assets/event.jpeg";
 
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     
 });
 
-export default function EventItem() {
+export default function EventItem({ data }) {
     return (
       <View style={styles.eventItemContainer}>
         <View style={styles.eventItemContainer.imageContainer}>
@@ -54,7 +54,7 @@ export default function EventItem() {
         </View>
         <View style={styles.eventItemContainer.contentContainer}>
           <View style={styles.eventItemContainer.contentContainer.titleContainer}>
-            <Text>Event 1</Text>
+            <Text>{data.name}</Text>
           </View>
           <View
             style={
@@ -62,8 +62,7 @@ export default function EventItem() {
             }
           >
             <Text style={{ fontSize: 10 }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-              excepturi eos, illo.
+              {data.description}
             </Text>
           </View>
           <View
@@ -71,8 +70,8 @@ export default function EventItem() {
               styles.eventItemContainer.contentContainer.infoWidgetsContainer
             }
           >
-            <DateInfoWidget marginRight={10}></DateInfoWidget>
-            <PriceInfoWidget marginRight={0}></PriceInfoWidget>
+            <DateInfoWidget start_date={data.start_date} end_date={data.end_date} marginRight={10}></DateInfoWidget>
+            <EventPriceInfoWidget ticket_price={data.ticket_price} marginRight={0}></EventPriceInfoWidget>
           </View>
         </View>
       </View>

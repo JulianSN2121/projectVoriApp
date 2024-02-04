@@ -8,6 +8,7 @@ import {
   View,
   StyleSheet,
   TextInput,
+  Button,
   ImageBackground,
   Pressable,
 } from "react-native";
@@ -222,7 +223,7 @@ const demoDataRestaurants = {
     name: "Restaurant 1",
     entity_tag: ["restaurant"],
     description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "1",
@@ -239,7 +240,8 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
@@ -250,7 +252,7 @@ const demoDataRestaurants = {
     name: "Restaurant 2",
     entity_tag: ["restaurant"],
     description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "2",
@@ -267,7 +269,8 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
@@ -277,8 +280,7 @@ const demoDataRestaurants = {
     imageUrl: RestaurantsBanner,
     name: "Restaurant 3",
     entity_tag: ["restaurant"],
-    description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "3",
@@ -295,7 +297,8 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
@@ -305,8 +308,7 @@ const demoDataRestaurants = {
     imageUrl: RestaurantsBanner,
     name: "Restaurant 4",
     entity_tag: ["restaurant"],
-    description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "4",
@@ -323,7 +325,8 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
@@ -333,8 +336,7 @@ const demoDataRestaurants = {
     imageUrl: RestaurantsBanner,
     name: "Restaurant 5",
     entity_tag: ["restaurant"],
-    description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "5",
@@ -351,7 +353,8 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
@@ -361,8 +364,7 @@ const demoDataRestaurants = {
     imageUrl: RestaurantsBanner,
     name: "Restaurant 6",
     entity_tag: ["restaurant"],
-    description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "6",
@@ -379,7 +381,8 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
@@ -389,8 +392,7 @@ const demoDataRestaurants = {
     imageUrl: RestaurantsBanner,
     name: "Restaurant 7",
     entity_tag: ["restaurant"],
-    description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "7",
@@ -407,7 +409,8 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
@@ -417,8 +420,7 @@ const demoDataRestaurants = {
     imageUrl: RestaurantsBanner,
     name: "Restaurant 8",
     entity_tag: ["restaurant"],
-    description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "8",
@@ -435,7 +437,8 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
@@ -445,8 +448,7 @@ const demoDataRestaurants = {
     imageUrl: RestaurantsBanner,
     name: "Restaurant 9",
     entity_tag: ["restaurant"],
-    description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "9",
@@ -463,7 +465,8 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
@@ -473,8 +476,7 @@ const demoDataRestaurants = {
     imageUrl: RestaurantsBanner,
     name: "Restaurant 10",
     entity_tag: ["restaurant"],
-    description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tat, sed dio dolores et, no",
     postalcode: "6972",
     street: "Musterstreet",
     housenumber: "10",
@@ -491,14 +493,16 @@ const demoDataRestaurants = {
     facebook_link: "www.facebook.com",
     images: null,
     menu: null,
-    location: null,
+    location: "Fußach",
+    price_range: "€€€",
     events: [],
     jobs: [],
   },
 };
 
 
-export default function DiscoverScreen() {
+export default function DiscoverScreen({ navigation }) {
+  
   // useEffect(() => {
   //    const fun = async () => {
   //      await apiClient("entities");
@@ -527,7 +531,7 @@ export default function DiscoverScreen() {
 
         {/* CategoriesSlider */}
         <View>
-          <CategoriesSlider></CategoriesSlider>
+          <CategoriesSlider navigation={navigation}></CategoriesSlider>
         </View>
 
         {/* Events in deiner Nähe */}
@@ -566,15 +570,22 @@ export default function DiscoverScreen() {
   );
 }
 
-function CategoriesSlider() {
+function CategoriesSlider({ navigation }) {
+  const entries = Object.entries(categoriesTitles);
   return (
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
       style={styles.slider}
     >
-      {Object.entries(categoriesTitles).map(([key, title]) => (
+      {Object.entries(categoriesTitles).map(([key, title], index) => (
         <CategoryItem
+          onPress={() => {
+            if (index === entries.length - 1) {
+            navigation.navigate('EventsScreen', {categoryType: title });
+          } else {
+            navigation.navigate('CategoryEntitiesScreen', { categoryType: title });
+          }}}
           key={key}
           title={title}
           imageSource={categoriesBannerImages[key]}
@@ -584,9 +595,9 @@ function CategoriesSlider() {
   );
 }
 
-function CategoryItem({ title, imageSource }) {
+function CategoryItem({ title, imageSource, onPress }) {
   return (
-    <Pressable>
+    <Pressable onPress={onPress}>
       <View style={styles.categoryItem}>
           <ImageBackground style={styles.categoryBanner} source={imageSource}>
             <Text style={styles.categoryItemText}>{title}</Text>
@@ -612,14 +623,16 @@ function SectionSlider({ data }) {
 
 function SectionSliderItem({ event }) {
   return (
-    <View style={styles.sliderItemContainer}>
-      <View style={styles.sliderItemContainer.box}>
-        <ImageBackground
-          source={event.imageUrl}
-          style={{ width: "100%", height: "100%" }}
-        />
+    <Pressable>
+      <View style={styles.sliderItemContainer}>
+        <View style={styles.sliderItemContainer.box}>
+          <ImageBackground
+            source={event.imageUrl}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </View>
+        <Text style={styles.sliderItemContainer.title}>{event.name}</Text>
       </View>
-      <Text style={styles.sliderItemContainer.title}>{event.name}</Text>
-    </View>
+    </Pressable>
   );
 }

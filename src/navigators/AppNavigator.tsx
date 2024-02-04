@@ -10,16 +10,28 @@ import EntityScreen from "../screens/App/CategoryEntitiesScreen";
 import LoginScreen from "../screens/Auth/LoginScreen";
 import RegistrationScreen from "../screens/Auth/RegistrationScreen";
 import { createStackNavigator } from "@react-navigation/stack";
-import WelcomeScreen from "../screens/Auth/WelcomeScreen";
 import EntityInfoScreen from "../screens/App/EntityInfoScreen";
+import CategoryEntitiesScreen from "../screens/App/CategoryEntitiesScreen";
 
 const Tab = createBottomTabNavigator();
+const DiscoverStack = createStackNavigator();
 
-// function DiscoverStackNavigator() {
-//   return (
-    
-//   );
-// }
+function DiscoverStackNavigator() {
+  return (
+    <DiscoverStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}>
+      <DiscoverStack.Screen name="DiscoverScreen" component={DiscoverScreen}/>
+      <DiscoverStack.Screen
+        name="CategoryEntitiesScreen"
+        component={CategoryEntitiesScreen}
+      />
+      <DiscoverStack.Screen name="EventsScreen" component={EventsScreen}/>
+      <DiscoverStack.Screen name="EntityInfoScreen" component={EntityInfoScreen} />
+    </DiscoverStack.Navigator>
+  );
+}
 
 export default function AppNavigator() {
   return (
@@ -31,7 +43,7 @@ export default function AppNavigator() {
     >
       <Tab.Screen
         name="Discover"
-        component={DiscoverScreen}
+        component={DiscoverStackNavigator}
         options={{
           tabBarLabel: "Entdecken",
           tabBarIcon: ({ color, size }) => (
@@ -69,19 +81,7 @@ export default function AppNavigator() {
           tabBarInactiveTintColor: "#ffffff",
         }}
       />
-      <Tab.Screen
-        name="EntityScreen"
-        component={EntityScreen}
-        options={{
-          tabBarLabel: "Entity",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="map" color={color} size={size} />
-          ),
-          tabBarActiveTintColor: "#ce1119",
-          tabBarInactiveTintColor: "#ffffff",
-        }}
-      />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Login"
         component={LoginScreen}
         options={{
@@ -104,19 +104,8 @@ export default function AppNavigator() {
           tabBarActiveTintColor: "#ce1119",
           tabBarInactiveTintColor: "#ffffff",
         }}
-      />
-      <Tab.Screen
-        name="EntityInfo"
-        component={EntityInfoScreen}
-        options={{
-          tabBarLabel: "EntInfo",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="login" color={color} size={size} />
-          ),
-          tabBarActiveTintColor: "#ce1119",
-          tabBarInactiveTintColor: "#ffffff",
-        }}
-      />
+      /> */}
+      
     </Tab.Navigator>
   );
 }
