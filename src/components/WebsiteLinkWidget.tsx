@@ -1,11 +1,11 @@
 import React from "react";
-import { Text, Pressable, StyleSheet } from "react-native";
+import { Text, Pressable, StyleSheet, Linking } from "react-native";
 import { colors, windowHeight, windowWidth } from "../../AppStyles";
 
 
-export default function WebsiteLinkWidget() {
+export default function WebsiteLinkWidget({websiteLink}) {
 	return (
-		<Pressable style={styles.container}>
+		<Pressable onPress={() => Linking.openURL("https://" + websiteLink)} style={styles.container}>
 			<Text style={styles.text}>Website</Text>
 		</Pressable>
 		)

@@ -1,11 +1,11 @@
 import React from "react";
-import { Text, Pressable, StyleSheet } from "react-native";
+import { Text, Pressable, StyleSheet, Linking } from "react-native";
 import { colors, windowHeight, windowWidth } from "../../AppStyles";
 
 
-export default function CallWidget() {
+export default function CallWidget({phoneNumber}) {
 	return (
-		<Pressable style={styles.container}>
+		<Pressable onPress={() => Linking.openURL(`tel:${phoneNumber}`)} style={styles.container}>
 			<Text style={styles.text}>Anrufen</Text>
 		</Pressable>
 		)

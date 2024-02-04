@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable, Linking } from "react-native";
 import { colors, windowHeight, windowWidth } from "../../AppStyles";
 
 const styles = StyleSheet.create({
@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
 
 export default function SocialMediaTabWidget({ title, link }) {
     return (
-      <View style={styles.socialMediaTabWidget}>
-        <Text style={styles.socialMediaTabWidgetTitle}>{title}</Text>
-      </View>
+      <Pressable onPress={() => Linking.openURL("https://" + link)} style={styles.socialMediaTabWidget}>
+			  <Text style={styles.socialMediaTabWidgetTitle}>{title}</Text>
+		  </Pressable>
     );
   }

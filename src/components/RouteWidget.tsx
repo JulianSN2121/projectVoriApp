@@ -1,11 +1,16 @@
 import React from "react";
-import { Text, Pressable, StyleSheet } from "react-native";
+import { Text, Pressable, StyleSheet, Linking, Platform } from "react-native";
 import { colors, windowHeight, windowWidth } from "../../AppStyles";
 
 
-export default function RouteWidget() {
+export default function RouteWidget({address}) {
+	const encodedAddress = encodeURIComponent(address);
+	const scheme = Platform.select({
+		ios: `maps:0,0?q=${encodedAddress}`,
+		android: `geo:0,0?q=${encodedAddress}`
+	  });
 	return (
-		<Pressable style={styles.container}>
+		<Pressable onPress={() => Linking.openURL(scheme)}  style={styles.container}>
 			<Text style={styles.text}>Route</Text>
 		</Pressable>
 		)
