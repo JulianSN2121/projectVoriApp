@@ -5,7 +5,7 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 export const HeaderStyles = {
-    headerContainer: {
+  headerContainer: {
     flexDirection: "row",
     flex: 1,
     alignContent: "center",

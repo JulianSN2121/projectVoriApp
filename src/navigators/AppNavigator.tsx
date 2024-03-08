@@ -2,16 +2,16 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { FontAwesome } from '@expo/vector-icons';
 
 import DiscoverScreen from "../screens/App/DiscoverScreen";
 import EventsScreen from "../screens/App/EventsScreen";
 import AccountScreen from "../screens/App/AccountScreen";
-import EntityScreen from "../screens/App/CategoryEntitiesScreen";
-import LoginScreen from "../screens/Auth/LoginScreen";
-import RegistrationScreen from "../screens/Auth/RegistrationScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import EntityInfoScreen from "../screens/App/EntityInfoScreen";
 import CategoryEntitiesScreen from "../screens/App/CategoryEntitiesScreen";
+import EventInfoScreen from "../screens/App/EventInfoScreen";
+import FeedScreen from "../screens/App/FeedScreen";
 
 const Tab = createBottomTabNavigator();
 const DiscoverStack = createStackNavigator();
@@ -23,12 +23,21 @@ function DiscoverStackNavigator() {
       headerShown: false,
     }}>
       <DiscoverStack.Screen name="DiscoverScreen" component={DiscoverScreen}/>
-      <DiscoverStack.Screen
-        name="CategoryEntitiesScreen"
-        component={CategoryEntitiesScreen}
-      />
+      <DiscoverStack.Screen name="CategoryEntitiesScreen" component={CategoryEntitiesScreen}/>
+      <DiscoverStack.Screen name="EntityInfoScreen" component={EntityInfoScreen}/>
       <DiscoverStack.Screen name="EventsScreen" component={EventsScreen}/>
-      <DiscoverStack.Screen name="EntityInfoScreen" component={EntityInfoScreen} />
+      <DiscoverStack.Screen name="EventInfoScreen" component={EventInfoScreen}/>
+    </DiscoverStack.Navigator>
+  );
+}
+function EventsStackNavigator() {
+  return (
+    <DiscoverStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}>
+      <DiscoverStack.Screen name="EventsScreen" component={EventsScreen}/>
+      <DiscoverStack.Screen name="EventInfoScreen" component={EventInfoScreen}/>
     </DiscoverStack.Navigator>
   );
 }
@@ -59,11 +68,23 @@ export default function AppNavigator() {
       />
       <Tab.Screen
         name="Events"
-        component={EventsScreen}
+        component={EventsStackNavigator}
         options={{
           tabBarLabel: "Events",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="calendar" color={color} size={size} />
+          ),
+          tabBarActiveTintColor: "#ce1119",
+          tabBarInactiveTintColor: "#ffffff",
+        }}
+      />
+      <Tab.Screen
+        name="Feed"
+        component={FeedScreen}
+        options={{
+          tabBarLabel: "Feed",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome name="feed" color={color} size={size} />
           ),
           tabBarActiveTintColor: "#ce1119",
           tabBarInactiveTintColor: "#ffffff",

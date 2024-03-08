@@ -3,6 +3,7 @@ import {
     Text,
     StyleSheet,
     Image,
+    Pressable
 } from "react-native";
 import { colors, windowHeight } from "../../AppStyles";
 import EventPriceInfoWidget from "./EventPriceInfoWidget";
@@ -46,35 +47,37 @@ const styles = StyleSheet.create({
     
 });
 
-export default function EventItem({ data }) {
+export default function EventItem({ onPress, data }) {
     return (
-      <View style={styles.eventItemContainer}>
-        <View style={styles.eventItemContainer.imageContainer}>
-          <Image style={styles.banner} source={Event}></Image>
+      <Pressable onPress={onPress}>
+        <View style={styles.eventItemContainer}>
+          <View style={styles.eventItemContainer.imageContainer}>
+            <Image style={styles.banner} source={Event}></Image>
+          </View>
+          <View style={styles.eventItemContainer.contentContainer}>
+            <View style={styles.eventItemContainer.contentContainer.titleContainer}>
+              <Text>{data.name}</Text>
+            </View>
+            <View
+              style={
+                styles.eventItemContainer.contentContainer.descriptionContainer
+              }
+            >
+              <Text style={{ fontSize: 10 }}>
+                {data.description}
+              </Text>
+            </View>
+            <View
+              style={
+                styles.eventItemContainer.contentContainer.infoWidgetsContainer
+              }
+            >
+              <DateInfoWidget start_date={data.start_date} end_date={data.end_date} marginRight={10}></DateInfoWidget>
+              <EventPriceInfoWidget ticket_price={data.ticket_price} marginRight={0}></EventPriceInfoWidget>
+            </View>
+          </View>
         </View>
-        <View style={styles.eventItemContainer.contentContainer}>
-          <View style={styles.eventItemContainer.contentContainer.titleContainer}>
-            <Text>{data.name}</Text>
-          </View>
-          <View
-            style={
-              styles.eventItemContainer.contentContainer.descriptionContainer
-            }
-          >
-            <Text style={{ fontSize: 10 }}>
-              {data.description}
-            </Text>
-          </View>
-          <View
-            style={
-              styles.eventItemContainer.contentContainer.infoWidgetsContainer
-            }
-          >
-            <DateInfoWidget start_date={data.start_date} end_date={data.end_date} marginRight={10}></DateInfoWidget>
-            <EventPriceInfoWidget ticket_price={data.ticket_price} marginRight={0}></EventPriceInfoWidget>
-          </View>
-        </View>
-      </View>
+      </Pressable>
     );
 }
   

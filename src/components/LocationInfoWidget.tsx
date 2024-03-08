@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { colors, windowHeight, windowWidth } from "../../AppStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function EventPriceInfoWidget({ data, marginRight }) {
+export default function LocationInfoWidget({ data, marginRight }) {
     return (
       <View style={{...styles.LocationInfoWidget, marginRight: marginRight}}>
         <View style={styles.LocationInfoWidget.icon}>
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         backgroundColor: colors.lightGrey,
         borderRadius: 3,
-        width: windowWidth * 0.2,
+        width: windowWidth * 0.21,
         padding: 2,
         icon: {
           alignItems: "center",

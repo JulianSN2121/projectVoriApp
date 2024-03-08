@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   
 });
 
-export default function EventsScreen() {
+export default function EventsScreen({ navigation }) {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ padding: 14 }}>
@@ -193,7 +193,7 @@ export default function EventsScreen() {
         <View style={styles.eventsContainer}>
           <View>
               {Object.values(demoDataEvents).map((data) => (
-                <EventItem key={data.id} data={data} />
+                <EventItem key={data.id} data={data} onPress={() => navigation.navigate('EventInfoScreen', { eventData: data })}/>
               ))}
             </View>
         </View>
