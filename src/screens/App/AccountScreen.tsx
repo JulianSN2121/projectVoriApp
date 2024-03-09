@@ -1,29 +1,43 @@
-import { View, Text, Pressable, Image, StyleSheet, SafeAreaView, ScrollView, } from 'react-native';
+import { useState } from 'react';
+import { View, Text, Pressable, Image, StyleSheet, SafeAreaView, ScrollView, TextInput, ViewBase } from 'react-native';
 import { colors, windowWidth, windowHeight } from "../../../AppStyles";
+import Icon from "react-native-vector-icons/FontAwesome";
 import Logo from '../../../assets/welcomeScreen_Logo.png';
+
 
 const styles = StyleSheet.create({ 
   contentContainer:{
     flex: 1,
+    height: windowHeight * .7,
+    flexDirection: "column",
   },
   headingContainer:{
-    flex: 1,
     font: {
-      fontSize: 20,
+      fontWeight: "bold",
+      fontSize: 18,
     }
   },
-  rowElement: {
+  boxContainer: {
+    flexGrow: 1,
+
+  },
+  logoutContainer: {
+    alignItems: "center",
+  },
+  boxElement: {
     flexDirection: "column",
-    width: "100%",
-    height: " 100%",
     heading: {
-      width: "100%"
+      width: "100%",
+      height: windowHeight *0.04,
+      justifyContent: "center",
+      font: {
+        fontSize: 15,
+      }
     },
     body: {
       borderColor: colors.lightGrey,
       borderWidth: 1,
       borderRadius: 4,
-      marginBottom: 10,
       padding: 15,
     }
   },  
@@ -85,23 +99,27 @@ export default function AccountView() {
             <View style={styles.headingContainer}>
               <Text style={styles.headingContainer.font}>Hallo Julian</Text>
             </View>
-            <View style={styles.rowElement}>
-              <View style={styles.rowElement.heading}>
-                <Text>E-Mail Adresse:</Text>
+
+            <View style={styles.boxContainer}>
+              <View style={styles.boxElement}>
+                <View style={styles.boxElement.heading}>
+                  <Text style={styles.boxElement.heading.font}>E-Mail Adresse:</Text>
+                </View>
+                <View style={styles.boxElement.body}>
+                    <EditableBox text={"testmail@mail.com"}></EditableBox>
+                </View>
               </View>
-              <View style={styles.rowElement.body}>
-                <Text>test@testmail.com</Text>
+              <View style={styles.boxElement}>
+                <View style={styles.boxElement.heading}>
+                  <Text>Passwort:</Text>
+                </View>
+                <View style={styles.boxElement.body}>
+                  <EditableBox text={"testmail@mail.com"}></EditableBox>
+                </View>
               </View>
             </View>
-            <View style={styles.rowElement}>
-              <View style={styles.rowElement.heading}>
-                <Text>Passwort:</Text>
-              </View>
-              <View style={styles.rowElement.body}>
-                <Text>test@testmail.com</Text>
-              </View>
-            </View>
-            <View>
+            
+            <View style={styles.logoutContainer}>
               <Pressable style={styles.button}>
                   <Text style={styles.button.font}>Abmelden</Text>
               </Pressable>
@@ -126,4 +144,43 @@ function Header(){
           </View>
       </View>
   )
+}
+
+function EditableBox({ text }){
+  const [isEditing, setIsEditing] = useState(false);
+  const [email, setEmail] = useState(text);
+
+  const toggleEdit = () => {
+    setIsEditing(!isEditing);
+  };
+
+  const handleConfirmEdit = () => {
+    setIsEditing(false);
+    // Here you can also handle saving the edited email to your state, backend, etc.
+  };
+
+  return (
+    <View>
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        {isEditing ? (
+          <TextInput
+            style={{ flex: 1, marginRight: 10 }}
+            value={email}
+            onChangeText={setEmail}
+            autoFocus={true}
+          />
+        ) : (
+          <Text>{email}</Text>
+        )}
+
+        <Pressable onPress={isEditing ? handleConfirmEdit : toggleEdit}>
+          {isEditing ? (
+            <Icon name="check" size={20} color="#000" />
+          ) : (
+            <Icon name="edit" size={20} color="#000" />
+          )}
+        </Pressable>
+      </View>
+    </View>
+  );
 }
