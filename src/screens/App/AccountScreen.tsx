@@ -1,25 +1,34 @@
-import { useState } from 'react';
-import { View, Text, Pressable, Image, StyleSheet, SafeAreaView, ScrollView, TextInput, ViewBase } from 'react-native';
+import { useState, useRef, useEffect } from 'react';
+import { View, Text, Pressable, Image, StyleSheet, SafeAreaView, ScrollView, TextInput, Animated } from 'react-native';
 import { colors, windowWidth, windowHeight } from "../../../AppStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Logo from '../../../assets/welcomeScreen_Logo.png';
 
 
 const styles = StyleSheet.create({ 
+  popupContainer: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      backgroundColor: colors.red,
+      color: colors.white,
+      borderRadius: 4,
+      padding: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 1,
+  },
   contentContainer:{
     flex: 1,
     height: windowHeight * .7,
     flexDirection: "column",
   },
   headingContainer:{
-    font: {
-      fontWeight: "bold",
-      fontSize: 18,
-    }
+    fontWeight: "bold",
+    fontSize: 18,
   },
   boxContainer: {
     flexGrow: 1,
-
   },
   logoutContainer: {
     alignItems: "center",
@@ -30,9 +39,7 @@ const styles = StyleSheet.create({
       width: "100%",
       height: windowHeight *0.04,
       justifyContent: "center",
-      font: {
-        fontSize: 15,
-      }
+      fontSize: 15,
     },
     body: {
       borderColor: colors.lightGrey,
@@ -50,6 +57,10 @@ const styles = StyleSheet.create({
       color: colors.white,
       textAlign: "center",
     },
+  },
+  input: {
+    flex: 1,
+    marginRight: 10,
   }
 })
 
@@ -89,48 +100,78 @@ events: {
 }
 
 export default function AccountView() {
-    return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <ScrollView style={{ padding: 14 }}>
+  const mockMail = "mail@testmail.com"
+  const mockPw = "12345678"
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
+  const popupY = useRef(new Animated.Value(-100)).current;
 
-          <Header></Header> 
 
-          <View style={styles.contentContainer}>
-            <View style={styles.headingContainer}>
-              <Text style={styles.headingContainer.font}>Hallo Julian</Text>
-            </View>
+  const handleShowPopup = (message) => {
+    setPopupMessage(message);
+    setShowPopup(true);
 
-            <View style={styles.boxContainer}>
-              <View style={styles.boxElement}>
-                <View style={styles.boxElement.heading}>
-                  <Text style={styles.boxElement.heading.font}>E-Mail Adresse:</Text>
-                </View>
-                <View style={styles.boxElement.body}>
-                    <EditableBox text={"testmail@mail.com"}></EditableBox>
-                </View>
-              </View>
-              <View style={styles.boxElement}>
-                <View style={styles.boxElement.heading}>
-                  <Text>Passwort:</Text>
-                </View>
-                <View style={styles.boxElement.body}>
-                  <EditableBox text={"testmail@mail.com"}></EditableBox>
-                </View>
-              </View>
-            </View>
-            
-            <View style={styles.logoutContainer}>
-              <Pressable style={styles.button}>
-                  <Text style={styles.button.font}>Abmelden</Text>
-              </Pressable>
-            </View>
+    Animated.timing(popupY, {
+      toValue: 0,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+
+    setTimeout(() => {
+      Animated.timing(popupY, {
+        toValue: -100, 
+        duration: 500,
+        useNativeDriver: true,
+      }).start(() => setShowPopup(false));
+    }, 5000);
+  }
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView style={{ padding: 14 }}>
+        {showPopup && (
+          <Animated.View style={[styles.popupContainer, {transform: [{translateY: popupY}]}]}>
+            <Text style={{color: colors.white}}>{popupMessage}</Text>
+          </Animated.View>
+        )}
+        <Header></Header> 
+
+        <View style={styles.contentContainer}>
+          <View style={styles.headingContainer}>
+            <Text style={styles.headingContainer}>Hallo Julian</Text>
           </View>
 
+          <View style={styles.boxContainer}>
+            <View style={styles.boxElement}>
+              <View style={styles.boxElement.heading}>
+                <Text>E-Mail Adresse:</Text>
+              </View>
+              <View style={styles.boxElement.body}>
+                <EditableBox onShowPopup={handleShowPopup} type={"email"} text={mockMail}/>
+              </View>
+            </View>
+            <View style={styles.boxElement}>
+              <View style={styles.boxElement.heading}>
+                <Text>Passwort:</Text>
+              </View>
+              <View style={styles.boxElement.body}>
+                <EditableBox onShowPopup={handleShowPopup} type={""} text={mockPw}/>
+              </View>
+            </View>
+          </View>
           
-        </ScrollView>
-      </SafeAreaView>
-    );
-  }
+          <View style={styles.logoutContainer}>
+            <Pressable style={styles.button}>
+                <Text style={styles.button.font}>Abmelden</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
 
   
 function Header(){
@@ -146,41 +187,37 @@ function Header(){
   )
 }
 
-function EditableBox({ text }){
+function EditableBox({ onShowPopup, type, text }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [email, setEmail] = useState(text);
-
-  const toggleEdit = () => {
-    setIsEditing(!isEditing);
-  };
+  const [value, setValue] = useState(text)
 
   const handleConfirmEdit = () => {
+    const message = type === "email" ? "E-Mail Adresse wurde geändert" : "Passwort wurde geändert";
+    onShowPopup(message);
     setIsEditing(false);
-    // Here you can also handle saving the edited email to your state, backend, etc.
   };
 
   return (
-    <View>
-      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-        {isEditing ? (
-          <TextInput
-            style={{ flex: 1, marginRight: 10 }}
-            value={email}
-            onChangeText={setEmail}
-            autoFocus={true}
-          />
-        ) : (
-          <Text>{email}</Text>
-        )}
-
-        <Pressable onPress={isEditing ? handleConfirmEdit : toggleEdit}>
-          {isEditing ? (
-            <Icon name="check" size={20} color="#000" />
-          ) : (
-            <Icon name="edit" size={20} color="#000" />
-          )}
+    <View style={{ flexDirection: 'row', alignItems: 'center', padding: 5 }}>
+      {isEditing ? (
+        <TextInput
+          style={styles.input}
+          value={value}
+          onChangeText={setValue}
+          autoFocus={true}
+        />
+      ) : (
+        <Text style={{ flex: 1 }}>{value}</Text>
+      )}
+      {isEditing ? (
+        <Pressable onPress={handleConfirmEdit}>
+          <Icon name="check" size={20} color="black" />
         </Pressable>
-      </View>
+      ) : (
+        <Pressable onPress={() => setIsEditing(true)}>
+          <Icon name="edit" size={20} color="black" />
+        </Pressable>
+      )}
     </View>
   );
-}
+};

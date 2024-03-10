@@ -15,6 +15,7 @@ import event5 from "../../../assets/events5.png";
 
 import Header from "../../components/Header";
 import EventItem from "../../components/EventItem";
+import DatePicker from "../../components/DatePicker";
 
 const demoDataEvents = {
   1: {
@@ -174,6 +175,8 @@ export default function EventsScreen({ navigation }) {
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ padding: 14 }}>
         <Header title="Events"></Header>
+
+        <DatePicker></DatePicker>
 
         <View style={styles.datePickerContainer}>
           <ScrollView
