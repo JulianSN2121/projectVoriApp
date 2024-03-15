@@ -11,10 +11,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import EntityInfoScreen from "../screens/App/EntityInfoScreen";
 import CategoryEntitiesScreen from "../screens/App/CategoryEntitiesScreen";
 import EventInfoScreen from "../screens/App/EventInfoScreen";
-import FeedScreen from "../screens/App/FeedScreen";
+import NewsScreen from "../screens/App/NewsScreen";
+import WelcomeScreen from "../screens/Auth/WelcomeScreen";
 
 const Tab = createBottomTabNavigator();
 const DiscoverStack = createStackNavigator();
+const EventStack = createStackNavigator();
+const NewsStack = createStackNavigator();
 
 function DiscoverStackNavigator() {
   return (
@@ -32,13 +35,24 @@ function DiscoverStackNavigator() {
 }
 function EventsStackNavigator() {
   return (
-    <DiscoverStack.Navigator
+    <EventStack.Navigator
     screenOptions={{
       headerShown: false,
     }}>
-      <DiscoverStack.Screen name="EventsScreen" component={EventsScreen}/>
-      <DiscoverStack.Screen name="EventInfoScreen" component={EventInfoScreen}/>
-    </DiscoverStack.Navigator>
+      <EventStack.Screen name="EventsScreen" component={EventsScreen}/>
+      <EventStack.Screen name="EventInfoScreen" component={EventInfoScreen}/>
+    </EventStack.Navigator>
+  );
+}
+function NewsStackNavigator() {
+  return (
+    <NewsStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}>
+      <NewsStack.Screen name="NewsScreen" component={NewsScreen}/>
+      <NewsStack.Screen name="EntityInfoScreen" component={EntityInfoScreen}/>
+    </NewsStack.Navigator>
   );
 }
 
@@ -79,10 +93,10 @@ export default function AppNavigator() {
         }}
       />
       <Tab.Screen
-        name="Feed"
-        component={FeedScreen}
+        name="News"
+        component={NewsStackNavigator}
         options={{
-          tabBarLabel: "Feed",
+          tabBarLabel: "News",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="feed" color={color} size={size} />
           ),
@@ -90,7 +104,7 @@ export default function AppNavigator() {
           tabBarInactiveTintColor: "#ffffff",
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Account"
         component={AccountScreen}
         options={{
@@ -101,7 +115,7 @@ export default function AppNavigator() {
           tabBarActiveTintColor: "#ce1119",
           tabBarInactiveTintColor: "#ffffff",
         }}
-      />
+      /> */}
       {/* <Tab.Screen
         name="Login"
         component={LoginScreen}

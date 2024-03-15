@@ -3,14 +3,29 @@ import { StyleSheet, Dimensions } from 'react-native';
 export const windowWidth = Dimensions.get("window").width;
 export const windowHeight = Dimensions.get("window").height;
 
+import Icon from "react-native-vector-icons/FontAwesome";
+import Icon_MI from "react-native-vector-icons/MaterialIcons"
+import Icon_MCI from "react-native-vector-icons/MaterialCommunityIcons"
+
+export const Icons = {
+  Icon: Icon,
+  Icon_MI: Icon_MI,
+  Icon_MCI: Icon_MCI
+};
+
 export const colors = {
   lightGrey: '#CECECE',
   darkGrey: '#333333',
   red: '#DA121A',
   white: '#FFFFFF',
+  black: '#000'
 }
 
-export const styles = StyleSheet.create({
+export const _styles = StyleSheet.create({
+  safeAreaView: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
   content: {
     flex: 1,
   },

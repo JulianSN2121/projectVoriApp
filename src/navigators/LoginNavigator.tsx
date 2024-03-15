@@ -8,11 +8,12 @@ const Stack = createStackNavigator();
 
 export default function LoginNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Willkommen">
-      <Stack.Screen name="Welcome" component={WelcomeScreen} />
-      <Stack.Screen name="Login">{props => <LoginScreen {...props} handleLogin={handleLogin} />}</Stack.Screen>
-      <Stack.Screen name="Registration" component={RegistrationScreen} />
+    <Stack.Navigator initialRouteName="Willkommen" screenOptions={{
+      headerShown: false
+    }}>
+      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+      <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+      <Stack.Screen name="RegistrationScreen" component={RegistrationScreen} />
     </Stack.Navigator>
   );
 }
- 

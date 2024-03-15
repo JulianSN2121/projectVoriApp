@@ -15,7 +15,7 @@ import { useState, useEffect } from "react";
 import { Icon } from "react-native-elements";
 import Swiper from "react-native-swiper";
 
-import { colors, windowHeight, windowWidth } from "../../../AppStyles";
+import { _styles, colors, windowHeight, windowWidth } from "../../../AppStyles";
 import Header from "../../components/Header";
 import CallWidget from "../../components/CallWidget";
 import OpeningStatusWidget from "../../components/OpeningStatusWidget";
@@ -177,7 +177,7 @@ export default function EntityInfoScreen({ navigation, route }) {
   const { entityData } = route.params;  
   
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={_styles.safeAreaView}>
       <ScrollView style={{ padding: 14 }}>
         <Header title={entityData.name}></Header>
 

@@ -1,12 +1,12 @@
+import React, { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   SafeAreaView,
-  Image,
   ScrollView,
 } from "react-native";
-import { colors, windowHeight, windowWidth } from "../../../AppStyles";
+import { _styles, colors, windowHeight, windowWidth } from "../../../AppStyles";
 import event1 from "../../../assets/events1.png";
 import event2 from "../../../assets/events2.png";
 import event3 from "../../../assets/events3.png";
@@ -120,21 +120,24 @@ const demoDataEvents = {
   },
 };
 
-const weekday = [
-  "Sonntag",
-  "Montag",
-  "Dienstag",
-  "Mittwoch",
-  "Donnerstag",
-  "Freitag",
-  "Samstag",
-];
-const d: Date = new Date();
+import { eventData } from "../../services/apiClient";
 
-const dates = {
-  date: d.getDay(),
-  weekday: weekday[d.getDay()],
-};
+
+// const weekday = [
+//   "Sonntag",
+//   "Montag",
+//   "Dienstag",
+//   "Mittwoch",
+//   "Donnerstag",
+//   "Freitag",
+//   "Samstag",
+// ];
+// const d: Date = new Date();
+
+// const dates = {
+//   date: d.getDay(),
+//   weekday: weekday[d.getDay()],
+// };
 
 const styles = StyleSheet.create({
   datePickerContainer: {
@@ -171,14 +174,34 @@ const styles = StyleSheet.create({
 });
 
 export default function EventsScreen({ navigation }) {
+  const [selectedDate, setSelectedDate] = useState();
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    
+  };
+
+  const filterEventsByDate = () => {
+    if(!selectedDate){
+      return Object.values((eventData))
+    }
+    
+    const selectedDateString = selectedDate.toISOString().split('T')[0];
+    return Object.values(eventData).filter((event) => {
+      const eventDate = event.start_date.split('T')[0];
+      return eventDate === selectedDateString;
+    })
+  }
+  
+  const filteredEvents = filterEventsByDate(); // Get the filtered events based on the selected date
+
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={_styles.safeAreaView}>
       <ScrollView style={{ padding: 14 }}>
         <Header title="Events"></Header>
 
-        <DatePicker></DatePicker>
-
-        <View style={styles.datePickerContainer}>
+        <DatePicker onDateChange={handleDateChange}></DatePicker>
+        
+        {/* <View style={styles.datePickerContainer}>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -191,11 +214,11 @@ export default function EventsScreen({ navigation }) {
             <DatePickerItem condition={false} date={dates}></DatePickerItem>
             <DatePickerItem condition={false} date={dates}></DatePickerItem>
           </ScrollView>
-        </View>
+        </View> */}
 
         <View style={styles.eventsContainer}>
           <View>
-              {Object.values(demoDataEvents).map((data) => (
+              {Object.values(filteredEvents).map((data) => (
                 <EventItem key={data.id} data={data} onPress={() => navigation.navigate('EventInfoScreen', { eventData: data })}/>
               ))}
             </View>
@@ -205,21 +228,21 @@ export default function EventsScreen({ navigation }) {
   );
 }
 
-function DatePickerItem({ condition, date }) {
-  return (
-    <View
-      style={[
-        styles.datePickerContainer.item,
-        condition
-          ? styles.datePickerContainer.item.isActive
-          : styles.datePickerContainer.item.default,
-      ]}
-    >
-      <Text style={{ color: "white", fontSize: 14, marginBottom: 10 }}>
-        {date.weekday}
-      </Text>
-      <Text style={{ color: "white", fontSize: 30 }}>{date.date}</Text>
-    </View>
-  );
-}
+// function DatePickerItem({ condition, date }) {
+//   return (
+//     <View
+//       style={[
+//         styles.datePickerContainer.item,
+//         condition
+//           ? styles.datePickerContainer.item.isActive
+//           : styles.datePickerContainer.item.default,
+//       ]}
+//     >
+//       <Text style={{ color: "white", fontSize: 14, marginBottom: 10 }}>
+//         {date.weekday}
+//       </Text>
+//       <Text style={{ color: "white", fontSize: 30 }}>{date.date}</Text>
+//     </View>
+//   );
+// }
 

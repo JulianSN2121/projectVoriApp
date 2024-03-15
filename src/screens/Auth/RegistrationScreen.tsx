@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, windowHeight, windowWidth } from "../../../AppStyles";
 
+
+const saveLoginCredentials = (credentials) => {
+  // Here you save the credentials to a global variable or perform an action like sending to a server.
+  global.userCredentials = credentials;
+  console.log(global.userCredentials)
+};
+
+
 export default function RegistrationScreen() {
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordRepeat, setPasswordRepeat] = useState('');
+
+  const handleSubmit = () => {
+    if (password !== passwordRepeat) {
+      alert("Die Passwörter stimmen nicht überein.");
+      return;
+    }
+    // Save credentials to global variable
+    saveLoginCredentials({ name, phoneNumber, email, password });
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
     <View style={styles.container}>
@@ -12,15 +35,15 @@ export default function RegistrationScreen() {
           <Text style={{ fontSize: 16, fontWeight: "bold" }}>Registrieren</Text>
         </View>
         <View style={styles.registrationContainer.inputsContainer}>
-          <InputField placeholderText="Name"></InputField>
-          <InputField placeholderText="Telefonnummer"></InputField>
-          <InputField placeholderText="E-Mail"></InputField>
-          <InputField placeholderText="Passwort"></InputField>
-          <InputField placeholderText="Passwort wiederholen"></InputField>
-        </View>
+          <TextInput placeholder="Name" value={name} onChangeText={setName} style={styles.input} />
+          <TextInput placeholder="Telefonnummer" value={phoneNumber} onChangeText={setPhoneNumber} style={styles.input} />
+          <TextInput placeholder="E-Mail" value={email} onChangeText={setEmail} style={styles.input} />
+          <TextInput secureTextEntry placeholder="Passwort" value={password} onChangeText={setPassword} style={styles.input} />
+          <TextInput secureTextEntry placeholder="Passwort wiederholen" value={passwordRepeat} onChangeText={setPasswordRepeat} style={styles.input} />
+      </View>
         <View style={styles.registrationContainer.buttonContainer}>
-          <Pressable style={styles.button}>
-            <Text style={styles.button.font}>Jetzt Registrieren</Text>
+          <Pressable onPress={handleSubmit} style={styles.button}>
+              <Text style={styles.button.font}>Jetzt Registrieren</Text>
           </Pressable>
         </View>
       </View>

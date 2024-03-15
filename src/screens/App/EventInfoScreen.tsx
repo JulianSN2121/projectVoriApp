@@ -7,7 +7,7 @@ import RouteWidget from "../../components/RouteWidget";
 import WebsiteLinkWidget from "../../components/WebsiteLinkWidget";
 import SocialMediaTabWidget from "../../components/SocialMediaTabWidget";
 import Event from "../../../assets/event.jpeg"
-import { colors, windowHeight, windowWidth } from "../../../AppStyles";
+import { _styles, colors, windowHeight, windowWidth } from "../../../AppStyles";
 import DateInfoWidget from "../../components/DateInfoWidget";
 import EventPriceInfoWidget from "../../components/EventPriceInfoWidget";
 
@@ -103,7 +103,7 @@ export default function EventInfoScreen({ route }){
 
     const { eventData } = route.params;
     return(
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={_styles.safeAreaView}>
       <ScrollView style={{ padding: 14 }}>
         <Header title={eventData.name}></Header>
 

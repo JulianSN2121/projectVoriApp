@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Image, Text, Pressable } from "react-native";
 import { StyleSheet } from "react-native";
-import { colors, windowWidth, windowHeight } from "../../../AppStyles";
+import { _styles, colors, windowWidth, windowHeight } from "../../../AppStyles";
 import Logo from "../../../assets/welcomeScreen_Logo.png";
 import Banner from "../../../assets/welcomeScreen_Banner.jpg";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -24,7 +24,7 @@ export default function WelcomeScreen({ navigation }) {
   }, []);
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={_styles.safeAreaView}>
       <View style={styles.container}>
         <View style={styles.logoContainer}> 
           <Image source={Logo} style={{...styles.logo, width: logoSize.width*0.3, height: logoSize.height*0.3}} />
@@ -38,7 +38,7 @@ export default function WelcomeScreen({ navigation }) {
         </View>
         <View style={styles.buttonContainer}>
           <Pressable style={styles.button}>
-            <Text style={styles.button.font} onPress={() => navigation.navigate("Events")}>Jetzt Entdecken</Text>
+            <Text style={styles.button.font} onPress={() => navigation.navigate("App")}>Jetzt Entdecken</Text>
           </Pressable>
         </View>
       </View>

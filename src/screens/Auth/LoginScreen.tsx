@@ -7,11 +7,11 @@ import {
   Pressable,
   Text,
 } from "react-native";
-import { colors, windowHeight, windowWidth } from "../../../AppStyles";
+import { _styles, colors, windowHeight, windowWidth } from "../../../AppStyles";
 
-export default function LoginScreen({ navigation, handleLogin }) {
+export default function LoginScreen({ navigation }) {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={_styles.safeAreaView}>
       <View style={styles.container}>
         <View style={styles.loginContainer}>
           <View style={styles.loginContainer.headingContainer}>
@@ -42,7 +42,7 @@ export default function LoginScreen({ navigation, handleLogin }) {
             </Text>
           </View>
           <View style={styles.registrationContainer.buttonContainer}>
-            <Pressable style={styles.button}>
+            <Pressable style={styles.button} onPress={() => {navigation.navigate('RegistrationScreen')}}>
               <Text style={styles.button.font}>Registrieren</Text>
             </Pressable>
           </View>
