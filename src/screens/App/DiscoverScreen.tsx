@@ -151,17 +151,21 @@ const styles = StyleSheet.create({
   }
 });
 
-const categoriesTitles = {
-  0: "Restaurants",
-  1: "Bars",
-  2: "Nachtclubs",
-  3: "Hotels",
-  4: "Unterkünfte",
-  5: "Unternehmen",
-  6: "Ärzte",
-  7: "Vereine",
-  8: "Organisationen",
-  9: "Events",
+interface CategoriesTitles {
+  [key: string]: string;
+}
+
+const categoriesTitles: CategoriesTitles = {
+  restaurants: "Restaurants",
+  bars: "Bars",
+  nightclubs: "Nachtclubs",
+  hotels: "Hotels",
+  accommodations: "Unterkünfte",
+  companies: "Unternehmen",
+  doctors: "Ärzte",
+  associations: "Vereine",
+  organisations: "Organisationen",
+  events: "Events",
 };
 
 const categoriesFilter = {

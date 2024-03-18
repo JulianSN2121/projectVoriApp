@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { View, Image, Text, Pressable } from "react-native";
 import { StyleSheet } from "react-native";
 import { _styles, colors, windowWidth, windowHeight } from "../../../AppStyles";
-import Logo from "../../../assets/welcomeScreen_Logo.png";
+// import Logo from "../../../assets/welcomeScreen_Logo.png";
 import Banner from "../../../assets/welcomeScreen_Banner.jpg";
+import Logo from "../../../assets/vorarlberg_logo.png"
 import { SafeAreaView } from "react-native-safe-area-context";
 
 
@@ -27,11 +28,11 @@ export default function WelcomeScreen({ navigation }) {
     <SafeAreaView style={_styles.safeAreaView}>
       <View style={styles.container}>
         <View style={styles.logoContainer}> 
-          <Image source={Logo} style={{...styles.logo, width: logoSize.width*0.3, height: logoSize.height*0.3}} />
+          <Image source={Logo} style={{...styles.logo, width: logoSize.width*0.2, height: logoSize.height*0.2}} />
         </View>
-        <View style={styles.headingContainer}> 
-          <Text>Vorarlberg</Text>   
-        </View>
+        {/* <View style={styles.headingContainer}> 
+          <Text style={styles.headingContainer.text}>Vorarlberg</Text>   
+        </View> */}
         <View style={styles.imageContainer}>
           <Image source={Banner} style={{...styles.banner, width: bannerSize.width*0.3, height: bannerSize.height*0.2}} />
             
@@ -61,6 +62,9 @@ const styles = StyleSheet.create({
   headingContainer: {
     flex: 1,
     justifyContent: 'center',
+    text: {
+      fontSize: 24,
+    },
     //  backgroundColor: "blue"
   },
   imageContainer: {
