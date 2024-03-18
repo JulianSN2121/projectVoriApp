@@ -1,15 +1,15 @@
 import { SafeAreaView } from "react-native"
 import { ScrollView, View, Image, Text, StyleSheet } from "react-native"
-import Header from "../../components/Header"
-import CallWidget from "../../components/CallWidget";
-import OpeningStatusWidget from "../../components/OpeningStatusWidget";
-import RouteWidget from "../../components/RouteWidget";
-import WebsiteLinkWidget from "../../components/WebsiteLinkWidget";
-import SocialMediaTabWidget from "../../components/SocialMediaTabWidget";
+import Header from "../components/Header"
+import CallWidget from "../components/CallWidget";
+import OpeningStatusWidget from "../components/OpeningStatusWidget";
+import RouteWidget from "../components/RouteWidget";
+import WebsiteLinkWidget from "../components/WebsiteLinkWidget";
+import SocialMediaTabWidget from "../components/SocialMediaTabWidget";
 import Event from "../../../assets/event.jpeg"
-import { _styles, colors, windowHeight, windowWidth } from "../../../AppStyles";
-import DateInfoWidget from "../../components/DateInfoWidget";
-import EventPriceInfoWidget from "../../components/EventPriceInfoWidget";
+import { _styles, colors, windowHeight, windowWidth } from "../../AppStyles";
+import DateInfoWidget from "../components/DateInfoWidget";
+import EventPriceInfoWidget from "../components/EventPriceInfoWidget";
 
 const styles = StyleSheet.create({
     contentContainer: {

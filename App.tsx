@@ -3,11 +3,8 @@ import 'react-native-url-polyfill/auto';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { styles } from "./AppStyles";
-
-// import LoginNavigator from "./src/navigators/LoginNavigator";
 import AppNavigator from "./src/navigators/AppNavigator";
-import WelcomeScreen from "./src/screens/Auth/WelcomeScreen";
+import WelcomeScreen from "./src/screens/WelcomeScreen";
 
 const RootStack = createStackNavigator();
 

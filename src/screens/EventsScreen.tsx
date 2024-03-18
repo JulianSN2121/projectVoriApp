@@ -6,16 +6,16 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
-import { _styles, colors, windowHeight, windowWidth } from "../../../AppStyles";
+import { _styles, colors, windowHeight, windowWidth } from "../../AppStyles";
 import event1 from "../../../assets/events1.png";
 import event2 from "../../../assets/events2.png";
 import event3 from "../../../assets/events3.png";
 import event4 from "../../../assets/events4.png";
 import event5 from "../../../assets/events5.png";
 
-import Header from "../../components/Header";
-import EventItem from "../../components/EventItem";
-import DatePicker from "../../components/DatePicker";
+import Header from "../components/Header";
+import EventItem from "../components/EventItem";
+import DatePicker from "../components/DatePicker";
 
 const demoDataEvents = {
   1: {
@@ -120,7 +120,7 @@ const demoDataEvents = {
   },
 };
 
-import { eventData } from "../../services/apiClient";
+import { eventData } from "../services/apiClient";
 
 
 // const weekday = [

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Image, Text, Pressable } from "react-native";
 import { StyleSheet } from "react-native";
-import { _styles, colors, windowWidth, windowHeight } from "../../../AppStyles";
+import { _styles, colors, windowWidth, windowHeight } from "../../AppStyles";
 // import Logo from "../../../assets/welcomeScreen_Logo.png";
 import Banner from "../../../assets/welcomeScreen_Banner.jpg";
 import Logo from "../../../assets/vorarlberg_logo.png"
@@ -30,9 +30,6 @@ export default function WelcomeScreen({ navigation }) {
         <View style={styles.logoContainer}> 
           <Image source={Logo} style={{...styles.logo, width: logoSize.width*0.2, height: logoSize.height*0.2}} />
         </View>
-        {/* <View style={styles.headingContainer}> 
-          <Text style={styles.headingContainer.text}>Vorarlberg</Text>   
-        </View> */}
         <View style={styles.imageContainer}>
           <Image source={Banner} style={{...styles.banner, width: bannerSize.width*0.3, height: bannerSize.height*0.2}} />
             

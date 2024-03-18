@@ -5,12 +5,12 @@ import {
   StyleSheet
 } from "react-native";
 import { useEffect, useState } from "react";
-import { _styles } from "../../../AppStyles";
-import Header from "../../components/Header";
-import EntityItem from "../../components/EntityItem";
+import { _styles } from "../../AppStyles";
+import Header from "../components/Header";
+import EntityItem from "../components/EntityItem";
 import RestaurantsBanner from "../../../assets/categoryRestaurantsBanner.jpg";
 
-import { entityData } from "../../services/apiClient";
+import { entityData } from "../services/apiClient";
 
 const styles = StyleSheet.create({
   entitiesContainer: {

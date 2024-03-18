@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { View, Text, Pressable, Image, StyleSheet, SafeAreaView, ScrollView, TextInput, Animated } from 'react-native';
-import { _styles, colors, windowWidth, windowHeight } from "../../../AppStyles";
+import { _styles, colors, windowWidth, windowHeight } from "../../AppStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Logo from '../../../assets/welcomeScreen_Logo.png';
 

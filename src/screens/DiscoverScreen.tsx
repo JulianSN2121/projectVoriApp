@@ -16,7 +16,7 @@ import {
 } from "react-native";
 import { debounce } from 'lodash';
 import Fuse from 'fuse.js';
-import { _styles, colors, windowWidth, windowHeight, Icons } from "../../../AppStyles";
+import { _styles, colors, windowWidth, windowHeight, Icons } from "../../AppStyles";
 import AccommodationsBanner from "../../../assets/categoryAccommodationsBanner.jpg";
 import AssociationsBanner from "../../../assets/categoryAssociationsBanner.jpg";
 import BarsBanner from "../../../assets/categoryBarsBanner.jpg";
@@ -27,15 +27,15 @@ import HotelsBanner from "../../../assets/categoryHotelsBanner.jpg";
 import NightclubsBanner from "../../../assets/categoryNightclubsBanner.jpg";
 import OrganisationsBanner from "../../../assets/categoryOrganisationsBanner.jpg";
 import RestaurantsBanner from "../../../assets/categoryRestaurantsBanner.jpg";
-import Header from "../../components/Header";
+import Header from "../components/Header";
 import event1 from "../../../assets/events1.png";
 import event2 from "../../../assets/events2.png";
 import event3 from "../../../assets/events3.png";
 import event4 from "../../../assets/events4.png";
 import event5 from "../../../assets/events5.png";
 
-import { eventData } from "../../services/apiClient";
-import { entityData } from "../../services/apiClient";
+import { eventData } from "../services/apiClient";
+import { entityData } from "../services/apiClient";
 
 const styles = StyleSheet.create({
   bodyContainer: {

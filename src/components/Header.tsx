@@ -3,7 +3,7 @@ import { View, Text, Image } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Logo from '../../assets/welcomeScreen_Logo.png';
 import { colors } from "../../AppStyles";
-import { HeaderStyles } from "./styles/Header";
+import { HeaderStyles } from "../styles/Header";
 
 const styles = HeaderStyles;
 

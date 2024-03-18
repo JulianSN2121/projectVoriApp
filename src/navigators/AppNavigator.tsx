@@ -1,18 +1,15 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome } from '@expo/vector-icons';
 
-import DiscoverScreen from "../screens/App/DiscoverScreen";
-import EventsScreen from "../screens/App/EventsScreen";
-import AccountScreen from "../screens/App/AccountScreen";
+import DiscoverScreen from "../screens/DiscoverScreen";
+import EventsScreen from "../screens/EventsScreen";
 import { createStackNavigator } from "@react-navigation/stack";
-import EntityInfoScreen from "../screens/App/EntityInfoScreen";
-import CategoryEntitiesScreen from "../screens/App/CategoryEntitiesScreen";
-import EventInfoScreen from "../screens/App/EventInfoScreen";
-import NewsScreen from "../screens/App/NewsScreen";
-import WelcomeScreen from "../screens/Auth/WelcomeScreen";
+import EntityInfoScreen from "../screens/EntityInfoScreen";
+import CategoryEntitiesScreen from "../screens/CategoryEntitiesScreen";
+import EventInfoScreen from "../screens/EventInfoScreen";
+import NewsScreen from "../screens/NewsScreen";
 
 const Tab = createBottomTabNavigator();
 const DiscoverStack = createStackNavigator();
