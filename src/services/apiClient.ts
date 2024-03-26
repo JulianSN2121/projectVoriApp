@@ -3060,6 +3060,10 @@ export const eventData: Event[] = [
     start_date: "2024-03-11T12:05:47",
     end_date: "2024-03-11T12:05:47",
     banner: null,
+    postalcode: "6972",
+    street: "Gießenstraße",
+    housenumber: "38",
+    location: "Fußach",
   },
   {
     id: 2,
@@ -3070,6 +3074,10 @@ export const eventData: Event[] = [
     start_date: "2024-03-12T12:05:47",
     end_date: "2024-03-11T12:05:47",
     banner: null,
+    postalcode: "6972",
+    street: "Gießenstraße",
+    housenumber: "38",
+    location: "Fußach",
   },
   {
     id: 3,
@@ -3080,6 +3088,10 @@ export const eventData: Event[] = [
     start_date: "2024-03-13T12:05:47",
     end_date: "2024-03-11T12:05:47",
     banner: null,
+    postalcode: "6972",
+    street: "Gießenstraße",
+    housenumber: "38",
+    location: "Fußach",
   },
   {
     id: 4,

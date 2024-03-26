@@ -34,8 +34,8 @@ const menuItems = {
   overview: "Übersicht",
   menu: "Menü",
   events: "Events",
-  jobs: "Jobs",
-  reviews: "Bewertungen",
+  // jobs: "Jobs",
+  // reviews: "Bewertungen",
 };
 
 const demoData = {

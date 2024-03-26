@@ -300,7 +300,7 @@ export default function DiscoverScreen({ navigation }) {
       case "organisation":
         return <Icons.Icon_MI name="account-balance" size={15} color="#000" />;
       default:
-        return null; // No icon for unknown types
+        return null;
     }
   };
   
@@ -333,7 +333,7 @@ export default function DiscoverScreen({ navigation }) {
             <Animated.View style={{...styles.resultsContainer, opacity: fadeAnim }}>
               <FlatList
                 data={searchResults}
-                nestedScrollEnabled={true} // Enable nested scrolling for this FlatList
+                nestedScrollEnabled={true}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
                   <Pressable onPress={() => {navigation.navigate('EntityInfoScreen', { entityData: item})}}>
@@ -448,8 +448,7 @@ function EventSectionSlider({ data, navigation }) {
 }
 
 function EventSectionSliderItem({ data, onPress }) {
-  // const imageUrl = "http://localhost:8055/assets/" + data.banner;
-  const imageUrl = "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg";
+  const imageUrl = "https://via.placeholder.com/150";
   return (
     <Pressable onPress={onPress}>
       <View style={styles.sliderItemContainer}>
