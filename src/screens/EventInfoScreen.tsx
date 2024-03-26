@@ -6,7 +6,7 @@ import OpeningStatusWidget from "../components/OpeningStatusWidget";
 import RouteWidget from "../components/RouteWidget";
 import WebsiteLinkWidget from "../components/WebsiteLinkWidget";
 import SocialMediaTabWidget from "../components/SocialMediaTabWidget";
-import Event from "../../../assets/event.jpeg"
+import Event from "../../assets/event.jpeg"
 import { _styles, colors, windowHeight, windowWidth } from "../../AppStyles";
 import DateInfoWidget from "../components/DateInfoWidget";
 import EventPriceInfoWidget from "../components/EventPriceInfoWidget";

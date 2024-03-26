@@ -10,8 +10,8 @@ import {
 } from "react-native";
 
 import { _styles, colors, windowHeight, windowWidth } from "../../AppStyles";
-import EventImage from "../../../assets/event.jpeg";
-import Logo from "../../../assets/welcomeScreen_Logo.png";
+import EventImage from "../../assets/event.jpeg";
+import Logo from "../../assets/welcomeScreen_Logo.png";
 import { charUppercase } from "../utils/stringHelpers";
 import Header from "../components/Header";
 import { entityData } from "../services/apiClient";

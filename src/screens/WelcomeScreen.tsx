@@ -3,8 +3,8 @@ import { View, Image, Text, Pressable } from "react-native";
 import { StyleSheet } from "react-native";
 import { _styles, colors, windowWidth, windowHeight } from "../../AppStyles";
 // import Logo from "../../../assets/welcomeScreen_Logo.png";
-import Banner from "../../../assets/welcomeScreen_Banner.jpg";
-import Logo from "../../../assets/vorarlberg_logo.png"
+import Banner from "../../assets/welcomeScreen_Banner.jpg";
+import Logo from "../../assets/vorarlberg_logo.png";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 

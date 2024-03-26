@@ -17,16 +17,16 @@ import {
 import { debounce } from 'lodash';
 import Fuse from 'fuse.js';
 import { _styles, colors, windowWidth, windowHeight, Icons } from "../../AppStyles";
-import AccommodationsBanner from "../../../assets/categoryAccommodationsBanner.jpg";
-import AssociationsBanner from "../../../assets/categoryAssociationsBanner.jpg";
-import BarsBanner from "../../../assets/categoryBarsBanner.jpg";
-import CompaniesBanner from "../../../assets/categoryCompaniesBanner.jpg";
-import DoctorsBanner from "../../../assets/categoryDoctorsBanner.jpg";
-import EventsBanner from "../../../assets/categoryEventsBanner.jpg";
-import HotelsBanner from "../../../assets/categoryHotelsBanner.jpg";
-import NightclubsBanner from "../../../assets/categoryNightclubsBanner.jpg";
-import OrganisationsBanner from "../../../assets/categoryOrganisationsBanner.jpg";
-import RestaurantsBanner from "../../../assets/categoryRestaurantsBanner.jpg";
+import AccommodationsBanner from "../../assets/categoryAccommodationsBanner.jpg";
+import AssociationsBanner from "../../assets/categoryAssociationsBanner.jpg";
+import BarsBanner from "../../assets/categoryBarsBanner.jpg";
+import CompaniesBanner from "../../assets/categoryCompaniesBanner.jpg";
+import DoctorsBanner from "../../assets/categoryDoctorsBanner.jpg";
+import EventsBanner from "../../assets/categoryEventsBanner.jpg";
+import HotelsBanner from "../../assets/categoryHotelsBanner.jpg";
+import NightclubsBanner from "../../assets/categoryNightclubsBanner.jpg";
+import OrganisationsBanner from "../../assets/categoryOrganisationsBanner.jpg";
+import RestaurantsBanner from "../../assets/categoryRestaurantsBanner.jpg";
 import Header from "../components/Header";
 import event1 from "../../../assets/events1.png";
 import event2 from "../../../assets/events2.png";
@@ -156,16 +156,16 @@ interface CategoriesTitles {
 }
 
 const categoriesTitles: CategoriesTitles = {
-  restaurants: "Restaurants",
-  bars: "Bars",
-  nightclubs: "Nachtclubs",
-  hotels: "Hotels",
-  accommodations: "Unterkünfte",
-  companies: "Unternehmen",
-  doctors: "Ärzte",
-  associations: "Vereine",
-  organisations: "Organisationen",
-  events: "Events",
+  0: "Restaurants",
+  1: "Bars",
+  2: "Nachtclubs",
+  3: "Hotels",
+  4: "Unterkünfte",
+  5: "Unternehmen",
+  6: "Ärzte",
+  7: "Vereine",
+  8: "Organisationen",
+  9: "Events",
 };
 
 const categoriesFilter = {
@@ -182,27 +182,27 @@ const categoriesFilter = {
 
 const sectionSliderCategories = {
   0: "restaurant",
-  1: "nightclub",
-  2: "hotel",
-  3: "accommodation",
-  4: "company",
-  5: "doctor",
-  6: "association",
-  7: "organisation",
+  1: "bar",
+  2: "nightclub",
+  3: "hotel",
+  4: "accommodation",
+  5: "company",
+  6: "doctor",
+  7: "association",
+  8: "organisation",
 };
 
-
 const categoriesBannerImages = {
-  accommodations: AccommodationsBanner,
-  associations: AssociationsBanner,
-  bars: BarsBanner,
-  companies: CompaniesBanner,
-  doctors: DoctorsBanner,
-  events: EventsBanner,
-  hotels: HotelsBanner,
-  nightclubs: NightclubsBanner,
-  organisations: OrganisationsBanner,
-  restaurants: RestaurantsBanner,
+  0: RestaurantsBanner,
+  1: BarsBanner,
+  2: NightclubsBanner,
+  3: HotelsBanner,
+  4: AccommodationsBanner,
+  5: CompaniesBanner,
+  6: DoctorsBanner,
+  7: AssociationsBanner,
+  8: OrganisationsBanner,
+  9: EventsBanner,
 }
 const fuseOptions = {
   includeScore: true,
@@ -213,7 +213,7 @@ const fuseOptions = {
   threshold: 0.4,
 };
 
-let fuse = new Fuse(entityData, fuseOptions); // Initialize Fuse with your data and options
+let fuse = new Fuse(entityData, fuseOptions);
 
 export default function DiscoverScreen({ navigation }) {
   
@@ -225,11 +225,11 @@ export default function DiscoverScreen({ navigation }) {
   useEffect(() => {
     const debouncedSetSearchQuery = debounce((query) => {
       setDebouncedSearchQuery(query);
-    }, 10); // Debounce search query input
+    }, 10);
 
     debouncedSetSearchQuery(searchQuery);
 
-    return () => debouncedSetSearchQuery.cancel(); // Cleanup on component unmount
+    return () => debouncedSetSearchQuery.cancel();
   }, [searchQuery]);
 
   useEffect(() => {
@@ -238,46 +238,41 @@ export default function DiscoverScreen({ navigation }) {
       return;
     }
 
-    // Perform search with Fuse.js
     const results = fuse.search(debouncedSearchQuery).map(({item}) => item);
 
     setSearchResults(results);
   }, [debouncedSearchQuery]);
 
-  const resultsHeight = new Animated.Value(0); // Start with 0 height
-  const fadeAnim = React.useRef(new Animated.Value(1)).current; // Initial opacity is 1
+  const resultsHeight = new Animated.Value(0);
+  const fadeAnim = React.useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    // Adjust the animation based on search results
     if (searchResults.length > 0) {
-      setSearchResultsVisible(true); // Make sure the container is set to be visible
+      setSearchResultsVisible(true);
       Animated.timing(resultsHeight, {
-        toValue: 100, // Adjust this value as needed for your design
-        duration: 300, // Duration of animation
-        useNativeDriver: false, // height and width are not supported by native driver
+        toValue: 100,
+        duration: 300,
+        useNativeDriver: false,
       }).start();
     } else {
       setSearchResultsVisible(false);
     }
-  }, [searchResults]); // Depend on searchResults
+  }, [searchResults]);
 
   const fadeOut = () => {
-    // Start the fade-out animation
     Animated.timing(fadeAnim, {
-      toValue: 0, // Animate to opacity: 0 (transparent)
-      duration: 300, // 500ms
-      useNativeDriver: true, // Use native driver for better performance
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
     }).start(() => {
-      // Animation is done. You can now remove the box or component.
-      setSearchResultsVisible(false); // Assuming you have a state `boxVisible` controlling the visibility
+      setSearchResultsVisible(false);
     });
   };
 
   const clearSearch = () => {
-    setSearchQuery(''); // Clear the search query
-    setSearchResults([]); // Clear the previous search results
-    setSearchResultsVisible(false); // Hide the results container
-    // Optionally reset animations here if needed
+    setSearchQuery('');
+    setSearchResults([]);
+    setSearchResultsVisible(false);
   };
   
   function dataFilter(data, criterium){
@@ -388,7 +383,7 @@ export default function DiscoverScreen({ navigation }) {
             <SectionSliderWithHeading
               key={key}
               heading={categoriesTitles[key]}
-              data={dataFilter(entityData, key)} // Assuming your dataFilter function can handle this
+              data={dataFilter(entityData, key)}
               navigation={navigation}
               categoryKey={key}
             />

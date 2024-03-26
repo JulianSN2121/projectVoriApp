@@ -21,14 +21,14 @@ import CallWidget from "../components/CallWidget";
 import OpeningStatusWidget from "../components/OpeningStatusWidget";
 import RouteWidget from "../components/RouteWidget";
 import WebsiteLinkWidget from "../components/WebsiteLinkWidget";
-import Restaurant from "../../../assets/categoryRestaurantsBanner.jpg";
+import Restaurant from "../../assets/categoryRestaurantsBanner.jpg";
 import SocialMediaTabWidget from "../components/SocialMediaTabWidget";
 import EventItem from "../components/EventItem";
-import event1 from "../../../assets/events1.png";
-import event2 from "../../../assets/events2.png";
-import event3 from "../../../assets/events3.png";
-import event4 from "../../../assets/events4.png";
-import event5 from "../../../assets/events5.png";
+import event1 from "../../assets/events1.png";
+import event2 from "../../assets/events2.png";
+import event3 from "../../assets/events3.png";
+import event4 from "../../assets/events4.png";
+import event5 from "../../assets/events5.png";
 
 const menuItems = {
   overview: "Übersicht",

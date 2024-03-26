@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, Pressable, StyleSheet, Linking } from "react-native";
 import { colors, windowHeight, windowWidth } from "../../AppStyles";
+import { styles } from "../styles/CallWidget"
 
 
 export default function CallWidget({phoneNumber}) {
@@ -10,18 +11,3 @@ export default function CallWidget({phoneNumber}) {
 		</Pressable>
 		)
 }
-
-const styles = StyleSheet.create({
-	container: {
-		width: 70,
-		height: 20,
-		backgroundColor: colors.lightGrey,
-		borderRadius: 3,
-		padding: 2,
-	}, 
-	text: {
-		color: colors.darkGrey,
-		textAlign: "center",
-		fontSize: 12
-	}
-})
