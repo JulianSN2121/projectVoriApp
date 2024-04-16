@@ -9,7 +9,7 @@ export default function EventPriceInfoWidget({ marginRight, ticket_price }) {
           <Icon style={colors.darkGrey} name="tag" size={10}></Icon>
         </View>
         <View style={styles.PriceInfoWidget.text}>
-          <Text style={{ fontSize: 10 }}>{ticket_price}</Text>
+          <Text style={{ fontSize: 10 }}>{ticket_price} €</Text>
         </View>
       </View>
     );

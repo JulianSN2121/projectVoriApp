@@ -281,23 +281,23 @@ export default function DiscoverScreen({ navigation }) {
 
   const getIconForCategory = (category) => {
     switch (category[0]) {
-      case "restaurant":
+      case 0:
         return <Icons.Icon_MI name="restaurant-menu" size={15} color="#000" />;
-      case "bar":
+      case 1:
         return <Icons.Icon_MI name="local-bar" size={15} color="#000" />;
-      case "nightclub":
+      case 2:
         return <Icons.Icon_MI name="music-note" size={15} color="#000" />;
-      case "hotel":
+      case 3:
         return <Icons.Icon_MI name="hotel" size={15} color="#000" />;
-      case "accommodation":
+      case 4:
         return <Icons.Icon_MCI name="hoop-house" size={15} color="#000" />;
-      case "company":
+      case 5:
         return <Icons.Icon_MI name="business-center" size={15} color="#000" />;
-      case "doctor":
+      case 6:
         return <Icons.Icon_MCI name="doctor" size={15} color="#000" />;
-      case "association":
+      case 7:
         return <Icons.Icon_MI name="group" size={15} color="#000" />;
-      case "organisation":
+      case 8:
         return <Icons.Icon_MI name="account-balance" size={15} color="#000" />;
       default:
         return null;
@@ -328,18 +328,17 @@ export default function DiscoverScreen({ navigation }) {
             </View>
           )}
           </View>
-          
           {searchResultsVisible && (
             <Animated.View style={{...styles.resultsContainer, opacity: fadeAnim }}>
               <FlatList
                 data={searchResults}
                 nestedScrollEnabled={true}
-                keyExtractor={(item) => item.id.toString()}
+                keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
                   <Pressable onPress={() => {navigation.navigate('EntityInfoScreen', { entityData: item})}}>
                     <View style={styles.resultItem}>
                       <View style={styles.resultItemLogo}>
-                        <Image style={{...styles.resultItemLogo.image, width: windowWidth * .1, height: windowWidth * 0.1}} source={categoriesBannerImages.restaurants}></Image>
+                        <Image style={{...styles.resultItemLogo.image, width: windowWidth * .1, height: windowWidth * 0.1}} source={categoriesBannerImages[0]}></Image>
                       </View>
                       <View style={styles.resultItemIcon}>
                         {getIconForCategory(item.category)}
@@ -351,7 +350,6 @@ export default function DiscoverScreen({ navigation }) {
                         <Text>{item.location}</Text>
                       </View>
                     </View>
-                    
                   </Pressable>
                 )}
                 ListEmptyComponent={() => (

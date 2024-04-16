@@ -1,0 +1,20 @@
+5dfc45055a7e8ae0f287b25c3897e2e4
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+const react_native_1 = require("@testing-library/react-native");
+const DiscoverScreen_1 = __importDefault(require("../screens/DiscoverScreen"));
+// Mock für die navigation-Prop
+const navigationMock = {
+    navigate: jest.fn(),
+};
+describe('DiscoverScreen', () => {
+    it('renders correctly', () => {
+        const { getByText } = (0, react_native_1.render)(<DiscoverScreen_1.default navigation={navigationMock}/>);
+        expect(getByText('Entdecke Vorarlberg')).toBeTruthy();
+    });
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXFVzZXJzXFxKdWxpYW5cXERvY3VtZW50c1xccHJvamVjdFZvcmlBcHBcXHNyY1xcX190ZXN0c19fXFxEaXNjb3ZlclNjcmVlbi50ZXN0LnRzeCIsIm1hcHBpbmdzIjoiOzs7OztBQUFBLGtEQUEwQjtBQUMxQixnRUFBMkU7QUFDM0UsK0VBQXVEO0FBRXZELCtCQUErQjtBQUMvQixNQUFNLGNBQWMsR0FBRztJQUNyQixRQUFRLEVBQUUsSUFBSSxDQUFDLEVBQUUsRUFBRTtDQUNwQixDQUFDO0FBRUYsUUFBUSxDQUFDLGdCQUFnQixFQUFFLEdBQUcsRUFBRTtJQUM5QixFQUFFLENBQUMsbUJBQW1CLEVBQUUsR0FBRyxFQUFFO1FBQzNCLE1BQU0sRUFBRSxTQUFTLEVBQUUsR0FBRyxJQUFBLHFCQUFNLEVBQUMsQ0FBQyx3QkFBYyxDQUFDLFVBQVUsQ0FBQyxDQUFDLGNBQWMsQ0FBQyxFQUFHLENBQUMsQ0FBQztRQUM3RSxNQUFNLENBQUMsU0FBUyxDQUFDLHFCQUFxQixDQUFDLENBQUMsQ0FBQyxVQUFVLEVBQUUsQ0FBQztJQUN4RCxDQUFDLENBQUMsQ0FBQztBQUNMLENBQUMsQ0FBQyxDQUFDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcSnVsaWFuXFxEb2N1bWVudHNcXHByb2plY3RWb3JpQXBwXFxzcmNcXF9fdGVzdHNfX1xcRGlzY292ZXJTY3JlZW4udGVzdC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuaW1wb3J0IHsgcmVuZGVyLCBmaXJlRXZlbnQsIHdhaXRGb3IgfSBmcm9tICdAdGVzdGluZy1saWJyYXJ5L3JlYWN0LW5hdGl2ZSc7XHJcbmltcG9ydCBEaXNjb3ZlclNjcmVlbiBmcm9tICcuLi9zY3JlZW5zL0Rpc2NvdmVyU2NyZWVuJztcclxuXHJcbi8vIE1vY2sgZsO8ciBkaWUgbmF2aWdhdGlvbi1Qcm9wXHJcbmNvbnN0IG5hdmlnYXRpb25Nb2NrID0ge1xyXG4gIG5hdmlnYXRlOiBqZXN0LmZuKCksXHJcbn07XHJcblxyXG5kZXNjcmliZSgnRGlzY292ZXJTY3JlZW4nLCAoKSA9PiB7XHJcbiAgaXQoJ3JlbmRlcnMgY29ycmVjdGx5JywgKCkgPT4ge1xyXG4gICAgY29uc3QgeyBnZXRCeVRleHQgfSA9IHJlbmRlcig8RGlzY292ZXJTY3JlZW4gbmF2aWdhdGlvbj17bmF2aWdhdGlvbk1vY2t9IC8+KTtcclxuICAgIGV4cGVjdChnZXRCeVRleHQoJ0VudGRlY2tlIFZvcmFybGJlcmcnKSkudG9CZVRydXRoeSgpO1xyXG4gIH0pO1xyXG59KTsiXSwidmVyc2lvbiI6M30=

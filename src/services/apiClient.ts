@@ -2995,7 +2995,7 @@ export const entityData: Entity[] = [
     }
 ];
 
-export const apiClient = async (): BaseEntity[] => {
+export const apiClient = async (): Entity[] => {
   //const url = 'http://localhost:8055/items/' + path; // Adjust the URL path according to your Directus setup
   //console.log(url)
   //try {
@@ -3018,37 +3018,6 @@ export const apiClient = async (): BaseEntity[] => {
   //  throw error; // Re-throw the error if you want to handle it later (e.g., to show an error message in the UI)
   //}
 };
-
-interface Entity {
-  id?: number;
-  name?: string;
-  entity_tag?: string;
-  description?: string;
-  location?: string;
-  logo?: string | null;
-  banner?: string | null;
-  type?: string;
-  street?: string;
-  housenumber?: string;
-  postalcode?: string;
-  phone_contact?: string;
-  opening_hours_monday?: string;
-  opening_hours_tuesday?: string;
-  opening_hours_wednesday?: string;
-  opening_hours_thursday?: string;
-  opening_hours_friday?: string;
-  opening_hours_saturday?: string;
-  opening_hours_sunday?: string;
-  website_link?: string;
-  instagram_link?: string;
-  facebook_link?: string;
-  price_range?: string[] | null;
-  entity_creation_timestamp?: string,
-  category?: string[];
-  images?: string[] | null;
-  menu?: any | null; // Replace 'any' with a more specific type if possible
-  entity_jobs?: any[]; // Replace 'any' with a more specific type if available
-}
 
 export const eventData: Event[] = [
   {
@@ -3565,12 +3534,3 @@ export const eventData: Event[] = [
   },
 ];
 
-interface Event {
-  id?: number;
-  name?: string;
-  description?: string;
-  ticket_price?: string;
-  start_date?: string;
-  end_date?: string;
-  banner?: string[] | null;
-}
